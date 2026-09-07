@@ -23,12 +23,62 @@
   --rose:       #E0778C;
   --rose-soft:  #FBDCE1;
 
+  /* superficies y detalles que cambian con el tema */
+  --band:       #2B211A;
+  --band-fg:    #FFF3E2;
+  --sketch:     #4A3A2E;
+  --rope-col:   #6B5949;
+  --dot:        rgba(43,33,26,.085);
+  --glow-a:     rgba(239,162,44,.14);
+  --glow-b:     rgba(217,80,47,.10);
+  --topbar-bg:  rgba(251,242,230,.86);
+  --floor:      rgba(70,45,25,.14);
+
+  --chip-amber-bg:#FBE3B4; --chip-amber-fg:#8A5A08; --chip-amber-bd:rgba(239,162,44,.45);
+  --chip-olive-bg:#DDE9CE; --chip-olive-fg:#48622F; --chip-olive-bd:rgba(110,143,82,.42);
+  --chip-clay-bg:rgba(217,80,47,.12); --chip-clay-fg:#B33C1E; --chip-clay-bd:rgba(217,80,47,.32);
+  --warn-bg:#FBDCE1; --warn-fg:#5A2A34; --warn-bd:rgba(224,119,140,.4);
+
   --shadow-sm: 0 1px 2px rgba(70,45,25,.06), 0 3px 8px rgba(70,45,25,.06);
   --shadow-md: 0 2px 4px rgba(70,45,25,.07), 0 10px 24px rgba(70,45,25,.09);
   --shadow-lg: 0 4px 10px rgba(70,45,25,.08), 0 22px 50px rgba(70,45,25,.12);
   --r-sm: 10px;
   --r-md: 16px;
   --r-lg: 24px;
+}
+
+:root[data-theme="dark"]{
+  --cream:      #1C1611;
+  --cream-2:    #271F18;
+  --paper:      #241D17;
+  --ink:        #F6EADB;
+  --ink-soft:   #CFBEAB;
+  --muted:      #9A8877;
+  --line:       #3D3126;
+  --line-soft:  #33291F;
+
+  --clay:       #E86A45;
+  --clay-dark:  #F08A63;
+  --amber:      #F2AE3E;
+  --olive:      #86A96A;
+
+  --band:       #392B21;
+  --sketch:     #E2D1BD;
+  --rope-col:   #BCA894;
+  --dot:        rgba(246,234,219,.07);
+  --glow-a:     rgba(239,162,44,.10);
+  --glow-b:     rgba(217,80,47,.09);
+  --topbar-bg:  rgba(28,22,17,.88);
+  --floor:      rgba(0,0,0,.45);
+
+  --chip-amber-bg:rgba(239,162,44,.18); --chip-amber-fg:#F6CB83; --chip-amber-bd:rgba(239,162,44,.45);
+  --chip-olive-bg:rgba(134,169,106,.18); --chip-olive-fg:#B7D69C; --chip-olive-bd:rgba(134,169,106,.45);
+  --chip-clay-bg:rgba(232,106,69,.16); --chip-clay-fg:#F2977C; --chip-clay-bd:rgba(232,106,69,.42);
+  --warn-bg:rgba(224,119,140,.15); --warn-fg:#F3C6D0; --warn-bd:rgba(224,119,140,.38);
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.25), 0 3px 8px rgba(0,0,0,.25);
+  --shadow-md: 0 2px 4px rgba(0,0,0,.3), 0 10px 24px rgba(0,0,0,.32);
+  --shadow-lg: 0 4px 10px rgba(0,0,0,.32), 0 22px 50px rgba(0,0,0,.45);
 }
 
 *{box-sizing:border-box;}
@@ -38,9 +88,9 @@ body{
   color:var(--ink);
   background-color:var(--cream);
   background-image:
-    radial-gradient(circle at 50% 50%, rgba(43,33,26,.085) 1.3px, transparent 1.4px),
-    radial-gradient(1200px 600px at 12% 12%, rgba(239,162,44,.14), transparent 60%),
-    radial-gradient(900px 500px at 88% 82%, rgba(217,80,47,.10), transparent 62%);
+    radial-gradient(circle at 50% 50%, var(--dot) 1.3px, transparent 1.4px),
+    radial-gradient(1200px 600px at 12% 12%, var(--glow-a), transparent 60%),
+    radial-gradient(900px 500px at 88% 82%, var(--glow-b), transparent 62%);
   background-size: 30px 30px, auto, auto;
   overflow:hidden;
   -webkit-font-smoothing:antialiased;
@@ -52,9 +102,9 @@ body{
   position:fixed; inset:0 0 auto 0; z-index:50;
   display:flex; align-items:center; gap:18px;
   padding:12px clamp(14px,3vw,28px);
-  background:rgba(251,242,230,.86);
+  background:var(--topbar-bg);
   backdrop-filter:blur(14px) saturate(1.2);
-  border-bottom:1px solid rgba(228,211,188,.9);
+  border-bottom:1px solid var(--line);
 }
 .brand{display:flex;align-items:center;gap:9px;flex:0 0 auto;}
 .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--clay);box-shadow:0 0 0 4px rgba(217,80,47,.16);}
@@ -74,7 +124,21 @@ body{
   white-space:nowrap;
 }
 .chip:hover{background:rgba(255,255,255,.75);border-color:var(--line-soft);}
-.chip.is-active{background:var(--ink);color:#FFF6E9;border-color:var(--ink);}
+.chip.is-active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.theme-toggle{
+  flex:0 0 auto;cursor:pointer;width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);
+  display:grid;place-items:center;padding:0;
+  transition:background .2s, color .2s, border-color .2s, transform .2s;
+}
+.theme-toggle:hover{color:var(--clay);border-color:var(--clay);transform:rotate(-12deg);}
+.theme-toggle svg{width:17px;height:17px;}
+.theme-toggle .ti-moon{fill:currentColor;stroke:none;}
+.theme-toggle .ti-sun{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;}
+.theme-toggle .ti-sun{display:none;}
+:root[data-theme="dark"] .theme-toggle .ti-sun{display:block;}
+:root[data-theme="dark"] .theme-toggle .ti-moon{display:none;}
+
 .topbar-hint{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);flex:0 0 auto;}
 .topbar-hint kbd{
   font-family:inherit;font-size:11px;padding:2px 6px;border-radius:6px;
@@ -82,7 +146,7 @@ body{
 }
 @media (max-width:820px){ .topbar-hint{display:none;} }
 
-.progress{position:fixed;top:57px;left:0;right:0;height:3px;background:rgba(228,211,188,.55);z-index:49;}
+.progress{position:fixed;top:57px;left:0;right:0;height:3px;background:var(--line-soft);z-index:49;}
 .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--amber),var(--clay));border-radius:0 3px 3px 0;transition:width .12s linear;}
 
 /* ---------------- Canvas horizontal ---------------- */
@@ -154,13 +218,13 @@ body{
 
 .step-badge{
   display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  padding:6px 12px;border-radius:999px;background:var(--amber-soft);color:#8A5A08;
-  border:1px solid rgba(239,162,44,.4);
+  padding:6px 12px;border-radius:999px;background:var(--chip-amber-bg);color:var(--chip-amber-fg);
+  border:1px solid var(--chip-amber-bd);
 }
 .step-badge-muted{background:var(--cream-2);color:var(--muted);border-color:var(--line);}
-.step-1{background:var(--amber-soft);color:#8A5A08;border-color:rgba(239,162,44,.45);}
-.step-2{background:rgba(217,80,47,.14);color:var(--clay-dark);border-color:rgba(217,80,47,.32);}
-.step-3{background:var(--olive-soft);color:#48622F;border-color:rgba(110,143,82,.38);}
+.step-1{background:var(--chip-amber-bg);color:var(--chip-amber-fg);border-color:var(--chip-amber-bd);}
+.step-2{background:var(--chip-clay-bg);color:var(--chip-clay-fg);border-color:var(--chip-clay-bd);}
+.step-3{background:var(--chip-olive-bg);color:var(--chip-olive-fg);border-color:var(--chip-olive-bd);}
 
 /* ---------------- Sticky notes ---------------- */
 .note{
@@ -199,9 +263,9 @@ body{
 .cover-lead{font-size:clamp(16px,1.25vw,19px);line-height:1.6;color:var(--ink-soft);margin:22px 0 0;max-width:46ch;}
 .cover-tags{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 0;}
 .tag{font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid;}
-.tag-a{background:var(--amber-soft);border-color:rgba(239,162,44,.45);color:#8A5A08;}
-.tag-b{background:rgba(217,80,47,.12);border-color:rgba(217,80,47,.32);color:var(--clay-dark);}
-.tag-c{background:var(--olive-soft);border-color:rgba(110,143,82,.4);color:#48622F;}
+.tag-a{background:var(--chip-amber-bg);border-color:var(--chip-amber-bd);color:var(--chip-amber-fg);}
+.tag-b{background:var(--chip-clay-bg);border-color:var(--chip-clay-bd);color:var(--chip-clay-fg);}
+.tag-c{background:var(--chip-olive-bg);border-color:var(--chip-olive-bd);color:var(--chip-olive-fg);}
 
 
 /* ---- caritas: frustrado -> preocupado -> triste -> furioso ---- */
@@ -372,7 +436,7 @@ body{
 .card p{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink-soft);}
 .card-icon{
   width:38px;height:38px;border-radius:11px;margin-bottom:14px;
-  background:var(--amber-soft);border:1px solid rgba(239,162,44,.4);
+  background:var(--chip-amber-bg);border:1px solid var(--chip-amber-bd);
   display:grid;place-items:center;font-size:19px;
 }
 .i-eye::before{content:"👁";} .i-chat::before{content:"💬";}
@@ -380,7 +444,7 @@ body{
 
 .truth{
   margin-top:clamp(18px,2.4vh,28px);
-  background:var(--ink);color:#FFF3E2;border-radius:var(--r-md);
+  background:var(--band);color:var(--band-fg);border-radius:var(--r-md);
   padding:clamp(18px,2.4vh,26px) clamp(20px,2.4vw,32px);
 }
 .truth-kicker{margin:0 0 8px;font-family:"Caveat",cursive;font-size:22px;color:var(--amber);}
@@ -413,14 +477,14 @@ body{
 .ferrari{margin:0;}
 .ferrari-svg{width:100%;height:auto;}
 .ferrari-svg .ground{stroke:var(--line);stroke-width:2;stroke-dasharray:5 8;fill:none;stroke-linecap:round;}
-.ferrari-svg .car-shadow{fill:rgba(70,45,25,.14);}
+.ferrari-svg .car-shadow{fill:var(--floor);}
 
-.ferrari-svg .pullers{stroke:#4A3A2E;stroke-width:3.1;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.ferrari-svg .pullers{stroke:var(--sketch);stroke-width:3.1;fill:none;stroke-linecap:round;stroke-linejoin:round;}
 .ferrari-svg .pullers .head{fill:var(--paper);stroke-width:3;}
-.ferrari-svg .pullers .hand{fill:#4A3A2E;stroke:#4A3A2E;stroke-width:2;}
-.ferrari-svg .fingers{stroke:#4A3A2E;stroke-width:2.2;fill:none;stroke-linecap:round;opacity:0;}
+.ferrari-svg .pullers .hand{fill:var(--sketch);stroke:var(--sketch);stroke-width:2;}
+.ferrari-svg .fingers{stroke:var(--sketch);stroke-width:2.2;fill:none;stroke-linecap:round;opacity:0;}
 .ferrari-svg .effort{stroke:var(--muted);stroke-width:2.4;opacity:.5;}
-.ferrari-svg .rope{stroke:#6B5949;stroke-width:2.6;fill:none;stroke-linecap:round;}
+.ferrari-svg .rope{stroke:var(--rope-col);stroke-width:2.6;fill:none;stroke-linecap:round;}
 
 /* --- animación: hacen fuerza, el carro no se mueve, se caen y vuelven --- */
 .ferrari-svg .puller-body{
@@ -529,25 +593,25 @@ body{
 .check-list strong{color:var(--ink);font-weight:600;font-size:15.5px;}
 .tick{
   flex:0 0 auto;width:22px;height:22px;border-radius:7px;margin-top:1px;
-  background:var(--olive-soft);border:1px solid rgba(110,143,82,.45);
+  background:var(--chip-olive-bg);border:1px solid var(--chip-olive-bd);
   position:relative;
 }
 .tick::after{
   content:"";position:absolute;left:7px;top:4px;width:5px;height:10px;
-  border:solid #4C6B31;border-width:0 2.2px 2.2px 0;transform:rotate(42deg);
+  border:solid var(--chip-olive-fg);border-width:0 2.2px 2.2px 0;transform:rotate(42deg);
 }
 .tick-clay{background:rgba(217,80,47,.13);border-color:rgba(217,80,47,.4);}
 .tick-clay::after{border-color:var(--clay-dark);}
 
 .warn-note{
   margin-top:14px;padding:14px 16px;border-radius:var(--r-md);
-  background:var(--rose-soft);border:1px solid rgba(224,119,140,.4);
-  font-size:14.5px;line-height:1.5;color:#5A2A34;
+  background:var(--warn-bg);border:1px solid var(--warn-bd);
+  font-size:14.5px;line-height:1.5;color:var(--warn-fg);
 }
 .track-band{
   margin-top:clamp(14px,1.8vh,20px);
   display:grid;grid-template-columns:.95fr 1.35fr;gap:clamp(18px,2.4vw,38px);align-items:center;
-  background:var(--ink);color:#FFF3E2;border-radius:var(--r-lg);
+  background:var(--band);color:var(--band-fg);border-radius:var(--r-lg);
   padding:clamp(16px,2vh,20px) clamp(20px,2.4vw,30px);
 }
 .track-title{margin:0;font-size:clamp(16px,1.4vw,22px);line-height:1.35;font-weight:500;}
@@ -594,7 +658,7 @@ body{
 /* ---- mini CRM animado: el pipeline se mueve solo ---- */
 .auto-demo{
   margin-top:clamp(14px,1.8vh,20px);
-  background:var(--ink);color:#FFF3E2;border-radius:var(--r-lg);
+  background:var(--band);color:var(--band-fg);border-radius:var(--r-lg);
   padding:clamp(14px,1.8vh,18px) clamp(18px,2.2vw,26px);
 }
 .auto-demo-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:12px;}
@@ -744,7 +808,7 @@ body{
 
 .closing{
   margin-top:clamp(20px,3vh,34px);text-align:center;
-  background:var(--ink);color:#FFF3E2;border-radius:var(--r-lg);
+  background:var(--band);color:var(--band-fg);border-radius:var(--r-lg);
   padding:clamp(24px,3.4vh,40px) 28px;
 }
 .closing-title{margin:0;font-size:clamp(28px,3vw,44px);font-weight:800;letter-spacing:-.03em;}
@@ -762,8 +826,8 @@ body{
 .rm-item{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;}
 .rm-dot{
   width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:17px;
-  background:#3B2E24;border:2px solid var(--amber);
-  box-shadow:0 0 0 5px rgba(43,33,26,1);position:relative;z-index:2;
+  background:var(--band);border:2px solid var(--amber);
+  box-shadow:0 0 0 6px var(--band);position:relative;z-index:2;
 }
 .rm-item strong{font-size:13.5px;font-weight:700;color:#FFF3E2;line-height:1.25;}
 .rm-sub{font-size:11.5px;line-height:1.35;color:rgba(255,243,226,.6);max-width:20ch;}

@@ -6,6 +6,16 @@
   var progress = document.getElementById('progressBar');
   var chips    = Array.prototype.slice.call(document.querySelectorAll('.chip'));
   var panels   = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  /* ---------- modo claro / oscuro ---------- */
+  var themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('lm-theme', next); } catch (e) {}
+    });
+  }
+
   /* ---------- respetar "reducir movimiento": congela también la cuerda (SMIL) ---------- */
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     var svg = document.querySelector('.ferrari-svg');
