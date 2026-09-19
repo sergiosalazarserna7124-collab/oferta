@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Un gerente por proyecto? — Propuesta para Raúl</title>
+<meta name="description" content="Por qué la IA y el CRM pueden cubrir gran parte del rol de gerente comercial, con más precisión y menos costo fijo.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=26">
+<link rel="stylesheet" href="/raul/raul.css?v=1">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('lm-theme');
+    if(!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+})();
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👔</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <span class="brand-name">Lead&nbsp;Master</span>
+  </div>
+  <nav class="chips" id="chips">
+    <button data-go="0" class="chip is-active">Inicio</button>
+    <button data-go="1" class="chip">El costo</button>
+    <button data-go="2" class="chip">El rol</button>
+    <button data-go="3" class="chip">La realidad</button>
+    <button data-go="4" class="chip">Lo que hacemos</button>
+    <button data-go="5" class="chip">Función por función</button>
+    <button data-go="6" class="chip">El modelo</button>
+    <button data-go="7" class="chip">No es cero</button>
+    <button data-go="8" class="chip">Piloto</button>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar entre modo claro y oscuro" title="Modo claro / oscuro">
+    <svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.9A8.6 8.6 0 0 1 9.1 3.8a8.6 8.6 0 1 0 11.1 11.1Z"/></svg>
+    <svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.4"/><path d="M12 1.6v3M12 19.4v3M1.6 12h3M19.4 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1"/></svg>
+  </button>
+  <div class="topbar-hint">
+    <kbd>←</kbd><kbd>→</kbd><span>o arrastra</span>
+  </div>
+</header>
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<main class="canvas" id="canvas">
+
+  <!-- ============ 0 · PORTADA ============ -->
+  <section class="panel panel-cover" data-index="0">
+    <div class="cover-grid">
+      <div class="cover-left">
+        <span class="step-badge step-2">Propuesta para Raúl</span>
+        <h1 class="cover-title" style="margin-top:16px">
+          ¿Un <span class="hl hl-clay">gerente</span><br>
+          por cada<br>proyecto?
+        </h1>
+        <p class="cover-lead">
+          Hoy la inteligencia artificial y el CRM pueden hacer gran parte de ese trabajo,
+          con más precisión y <strong>sin sumar un sueldo fijo</strong> por cada proyecto nuevo.
+        </p>
+        <div class="cover-tags">
+          <span class="tag tag-a">Menos costo fijo</span>
+          <span class="tag tag-b">El mismo control</span>
+          <span class="tag tag-c">Piloto de 30 días</span>
+        </div>
+      </div>
+
+      <div class="cover-right">
+        <div class="org" aria-hidden="true">
+          <div class="org-row"><span class="org-proj">🏢 Proyecto 1</span><span class="org-line"></span><span class="org-mgr">👔 Gerente <b>$25,000</b></span></div>
+          <div class="org-row"><span class="org-proj">🏢 Proyecto 2</span><span class="org-line"></span><span class="org-mgr">👔 Gerente <b>$25,000</b></span></div>
+          <div class="org-row"><span class="org-proj">🏢 Proyecto 3</span><span class="org-line"></span><span class="org-mgr">👔 Gerente <b>$25,000</b></span></div>
+          <div class="org-row"><span class="org-proj">🏢 Proyecto 4</span><span class="org-line"></span><span class="org-mgr">👔 Gerente <b>$25,000</b></span></div>
+          <div class="org-total">= <b>$100,000 MXN</b> al mes, solo en gerentes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">hagamos cuentas</span></div>
+
+  <!-- ============ 1 · EL COSTO ============ -->
+  <section class="panel panel-wide" data-index="1">
+    <div class="panel-head">
+      <span class="step-badge step-badge-muted">El costo</span>
+      <h2 class="panel-title">El costo fijo que <span class="hl hl-clay">crece</span><br>con cada proyecto nuevo</h2>
+    </div>
+
+    <div class="cost-grid">
+      <div class="salary-card">
+        <p class="mini-label">Sueldo actual por gerente</p>
+        <p class="salary-num">$25,000</p>
+        <p class="salary-sub">MXN al mes, facturables. Un puesto de tiempo completo por proyecto.</p>
+        <p class="source">Fuente: vacante “Gerente Comercial — Playa del Carmen”.</p>
+      </div>
+
+      <div class="calc">
+        <label class="calc-label" for="projRange1">¿Cuántos proyectos tienes hoy?</label>
+        <div class="calc-row">
+          <input class="proj-range" id="projRange1" type="range" min="1" max="10" value="4" aria-describedby="calcTotal1">
+          <output class="calc-n" data-bind="n">4</output>
+        </div>
+        <div class="mgr-grid" data-bind-grid="mgr"></div>
+        <p class="calc-result" id="calcTotal1"><span class="calc-total" data-bind="total">$100,000</span> MXN al mes solo en gerentes comerciales</p>
+        <p class="calc-year">Son <b data-bind="year">$1,200,000</b> MXN al año.</p>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <span class="verdict-icon">!</span>
+      <p>Cada proyecto nuevo suma <strong>otro sueldo completo</strong>, sin importar si el equipo comercial ya está capacitado.</p>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">¿y qué hace?</span></div>
+
+  <!-- ============ 2 · EL ROL ============ -->
+  <section class="panel" data-index="2">
+    <div class="panel-head">
+      <span class="step-badge step-badge-muted">El rol</span>
+      <h2 class="panel-title">Lo que un gerente comercial<br><span class="hl hl-amber">debería</span> hacer</h2>
+      <p class="panel-lead">Según la descripción del puesto que usan hoy para contratar.</p>
+    </div>
+
+    <div class="role-grid">
+      <article class="card">
+        <div class="card-icon">🎓</div>
+        <h3>Reclutar y capacitar</h3>
+        <p>Formar asesores nuevos y desarrollarlos en el proceso de venta.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Acompañar el ciclo de venta</h3>
+        <p>Contacto, perfilamiento, presentación y cierre con los clientes.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">📈</div>
+        <h3>Evaluar KPIs y dar feedback</h3>
+        <p>Medir el desempeño del equipo y retroalimentar constantemente.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">📣</div>
+        <h3>Coordinar con marketing</h3>
+        <p>Compartir información clave para mejorar la generación de leads.</p>
+      </article>
+    </div>
+    <p class="source" style="margin-top:18px">Fuente: vacante “Gerente Comercial — Playa del Carmen”.</p>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">pero en la vida real…</span></div>
+
+  <!-- ============ 3 · LA REALIDAD ============ -->
+  <section class="panel" data-index="3">
+    <div class="panel-head">
+      <span class="step-badge step-badge-muted">La realidad</span>
+      <h2 class="panel-title">Pero en la práctica,<br>el tiempo se va <span class="hl hl-clay">a otro lado</span></h2>
+      <p class="panel-lead">Lo que observamos en los equipos actuales:</p>
+    </div>
+
+    <div class="split" aria-label="70% del tiempo en reportes, 30% en coaching y cierre">
+      <div class="split-a">
+        <span class="split-pct">~70%</span>
+        <span class="split-txt">Reportes y tareas administrativas del equipo</span>
+      </div>
+      <div class="split-b">
+        <span class="split-pct">30%</span>
+        <span class="split-txt">Coaching, negociación y cierre</span>
+      </div>
+    </div>
+    <div class="split-legend">
+      <span><i class="lg lg-a"></i> Tiempo que no vende</span>
+      <span><i class="lg lg-b"></i> Lo que de verdad mueve las ventas</span>
+    </div>
+
+    <div class="truth" style="margin-top:28px">
+      <p class="truth-kicker">En otras palabras:</p>
+      <p class="truth-main">Se paga un puesto completo para hacer, en gran parte, <strong>lo que un dashboard automático ya hace mejor</strong>.</p>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">aquí entramos</span></div>
+
+  <!-- ============ 4 · LO QUE HACEMOS IGUAL ============ -->
+  <section class="panel panel-wide" data-index="4">
+    <div class="panel-head">
+      <span class="step-badge step-1">Lo que hacemos</span>
+      <h2 class="panel-title">Lo que hace un gerente, el sistema <span class="hl hl-amber">lo hace igual</span>.<br>Todos los días, en todos los proyectos.</h2>
+      <p class="panel-lead">Inteligencia artificial + Go High Level, montado y funcionando por Lead Master.</p>
+    </div>
+
+    <div class="do-grid">
+      <article class="do-card">
+        <span class="do-ico">📊</span>
+        <div><h3>Reportes y KPIs en tiempo real</h3><p>Dashboards por asesor y por proyecto, sin que nadie los arme a mano.</p></div>
+        <span class="auto-pill ap1">Automático</span>
+      </article>
+      <article class="do-card">
+        <span class="do-ico">🎯</span>
+        <div><h3>Perfilamiento y calificación de leads</h3><p>La IA prioriza a quién contactar primero según intención y presupuesto.</p></div>
+        <span class="auto-pill ap2">Automático</span>
+      </article>
+      <article class="do-card">
+        <span class="do-ico">🔁</span>
+        <div><h3>Seguimiento automático</h3><p>Secuencias de WhatsApp y correo que no dejan enfriar a ningún prospecto.</p></div>
+        <span class="auto-pill ap3">Automático</span>
+      </article>
+      <article class="do-card">
+        <span class="do-ico">🚨</span>
+        <div><h3>Alertas de desempeño</h3><p>Avisa cuando un asesor se atrasa en tiempos de respuesta o de cierre.</p></div>
+        <span class="auto-pill ap4">Automático</span>
+      </article>
+      <article class="do-card">
+        <span class="do-ico">🎧</span>
+        <div><h3>Registro y análisis de llamadas</h3><p>Transcribe y evalúa cada contacto sin que alguien tenga que escuchar todas las llamadas.</p></div>
+        <span class="auto-pill ap5">Automático</span>
+      </article>
+      <article class="do-card">
+        <span class="do-ico">🧭</span>
+        <div><h3>Pipeline y etapas automáticas</h3><p>Mueve prospectos entre etapas y le avisa a marketing qué está funcionando.</p></div>
+        <span class="auto-pill ap6">Automático</span>
+      </article>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">uno por uno</span></div>
+
+  <!-- ============ 5 · FUNCIÓN POR FUNCIÓN ============ -->
+  <section class="panel panel-wide" data-index="5">
+    <div class="panel-head">
+      <span class="step-badge step-badge-muted">Función por función</span>
+      <h2 class="panel-title">Qué pasa al sistema<br>y qué <span class="hl hl-olive">sigue siendo humano</span></h2>
+    </div>
+
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead>
+          <tr><th>Función del gerente</th><th>El sistema (IA + GHL)</th><th>Sigue siendo humano</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Reportes de KPIs del equipo</td><td><span class="yes">✓ Automático</span></td><td><span class="no">—</span></td></tr>
+          <tr><td>Perfilamiento y seguimiento de leads</td><td><span class="yes">✓ Automático</span></td><td><span class="no">—</span></td></tr>
+          <tr><td>Alertas de desempeño y de respuesta</td><td><span class="yes">✓ Automático</span></td><td><span class="no">—</span></td></tr>
+          <tr><td>Capacitación inicial del asesor</td><td><span class="part">◐ Apoya: guiones e IA de práctica</span></td><td><span class="yes">✓ Sí</span></td></tr>
+          <tr><td>Coaching 1 a 1 y motivación</td><td><span class="no">—</span></td><td><span class="yes">✓ Sí</span></td></tr>
+          <tr><td>Negociación y cierre estratégico</td><td><span class="no">—</span></td><td><span class="yes">✓ Sí</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">el cambio</span></div>
+
+  <!-- ============ 6 · EL MODELO ============ -->
+  <section class="panel panel-wide" data-index="6">
+    <div class="panel-head">
+      <span class="step-badge step-3">El modelo</span>
+      <h2 class="panel-title">Un supervisor, <span class="hl hl-olive">varios proyectos</span></h2>
+    </div>
+
+    <div class="model-top">
+      <label class="calc-label" for="projRange2">Proyectos:</label>
+      <input class="proj-range" id="projRange2" type="range" min="1" max="10" value="4">
+      <output class="calc-n" data-bind="n">4</output>
+    </div>
+
+    <div class="model-grid">
+      <div class="model-card model-now">
+        <p class="mini-label">Modelo actual</p>
+        <h3>1 gerente × proyecto</h3>
+        <p class="model-line"><b data-bind="n">4</b> gerentes × $25,000 MXN</p>
+        <div class="bar"><span class="bar-fill bar-now"></span></div>
+        <p class="model-cost"><span data-bind="total">$100,000</span> <small>/mes</small></p>
+      </div>
+
+      <div class="model-card model-new">
+        <p class="mini-label">Modelo propuesto</p>
+        <h3>1 supervisor + IA / GHL</h3>
+        <p class="model-line">Supervisa <b data-bind="n">4</b> proyectos con dashboards en tiempo real</p>
+        <div class="bar"><span class="bar-fill bar-new"></span></div>
+        <p class="model-cost">$25,000 <small>/mes en supervisión*</small></p>
+      </div>
+
+      <div class="saving">
+        <p class="saving-label">Te liberas de</p>
+        <p class="saving-num"><span data-bind="nMinus1">3</span> sueldos fijos</p>
+        <p class="saving-money"><span data-bind="saving">$75,000</span> MXN al mes</p>
+        <p class="saving-year">≈ <span data-bind="savingYear">$900,000</span> al año</p>
+      </div>
+    </div>
+
+    <p class="footnote">* Tomamos como referencia el mismo sueldo de un gerente para el supervisor. El ahorro es antes de la inversión en el sistema.
+      El supervisor se enfoca en coaching, cierres estratégicos y la relación con el desarrollador; la IA cubre el monitoreo diario de cada proyecto.</p>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">ojo con esto</span></div>
+
+  <!-- ============ 7 · NO ES CERO ============ -->
+  <section class="panel" data-index="7">
+    <div class="panel-head">
+      <span class="step-badge step-badge-muted">No es cero</span>
+      <h2 class="panel-title">Esto no es “cero gerentes”:<br>es <span class="hl hl-amber">menos costo fijo</span> por lo mismo</h2>
+      <p class="panel-lead">Lo humano se queda donde de verdad hace la diferencia.</p>
+    </div>
+
+    <div class="train-grid">
+      <article class="train-card">
+        <span class="train-num">1</span>
+        <h3>Coaching real</h3>
+        <p>Sesiones 1 a 1, manejo de objeciones difíciles y la moral del equipo.</p>
+      </article>
+      <article class="train-card">
+        <span class="train-num">2</span>
+        <h3>Negociación y cierre</h3>
+        <p>Casos complejos, clientes clave y condiciones especiales con el desarrollador.</p>
+      </article>
+      <article class="train-card">
+        <span class="train-num">3</span>
+        <h3>Criterio y contexto</h3>
+        <p>Decisiones que dependen de la relación, el momento y la lectura de cada proyecto.</p>
+      </article>
+    </div>
+
+    <div class="verdict verdict-soft" style="margin-top:26px">
+      <span class="verdict-icon">⚖️</span>
+      <p>La IA se queda con <strong>lo repetitivo y medible</strong>. El supervisor, con <strong>lo que de verdad necesita criterio</strong>.</p>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">¿cómo arrancamos?</span></div>
+
+  <!-- ============ 8 · PILOTO ============ -->
+  <section class="panel panel-wide" data-index="8">
+    <div class="panel-head">
+      <span class="step-badge step-2">La propuesta</span>
+      <h2 class="panel-title">Empecemos con un <span class="hl hl-clay">piloto de 30 días</span></h2>
+      <p class="panel-lead">Sin cambiar todo de golpe: se prueba en un proyecto y se mide.</p>
+    </div>
+
+    <div class="closing">
+      <h3 class="closing-title">Así funciona el piloto</h3>
+      <div class="roadmap pilot-map">
+        <div class="rm-line"></div>
+        <div class="rm-item">
+          <span class="rm-dot">1</span>
+          <strong>Elegimos un proyecto</strong>
+          <span class="rm-sub">Se retira el gerente dedicado y se activa el dashboard de GHL.</span>
+        </div>
+        <div class="rm-item">
+          <span class="rm-dot">2</span>
+          <strong>El supervisor lo cubre</strong>
+          <span class="rm-sub">Con alertas y reportes automáticos, sin dedicación de tiempo completo.</span>
+        </div>
+        <div class="rm-item">
+          <span class="rm-dot">3</span>
+          <strong>Medimos resultados</strong>
+          <span class="rm-sub">Ventas, tiempos de respuesta y satisfacción del equipo vs. el modelo anterior.</span>
+        </div>
+      </div>
+      <p class="closing-text">Si funciona en un proyecto, <strong style="color:var(--amber)">se replica en los demás</strong>.</p>
+      <p class="signature hand">Lead Master</p>
+    </div>
+  </section>
+
+  <div class="canvas-end"></div>
+</main>
+
+<script src="/app.js?v=26"></script>
+<script src="/raul/raul.js?v=1"></script>
+</body>
+</html>
