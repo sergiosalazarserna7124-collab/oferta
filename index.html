@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css?v=26">
-<link rel="stylesheet" href="/oferta.css?v=1">
+<link rel="stylesheet" href="/oferta.css?v=2">
 <script>
 (function(){
   try{
@@ -33,13 +33,14 @@
   <nav class="chips" id="chips">
     <button data-go="0" class="chip is-active">Inicio</button>
     <button data-go="1" class="chip">Hoy</button>
-    <button data-go="2" class="chip">Lo que pierdes</button>
-    <button data-go="3" class="chip">Lo hace solo</button>
-    <button data-go="4" class="chip">Tu día</button>
-    <button data-go="5" class="chip">Mejores leads</button>
-    <button data-go="6" class="chip">Tus números</button>
-    <button data-go="7" class="chip">El resultado</button>
-    <button data-go="8" class="chip">Arrancamos</button>
+    <button data-go="2" class="chip">Mientras tanto</button>
+    <button data-go="3" class="chip">Lo que pierdes</button>
+    <button data-go="4" class="chip">Lo hace solo</button>
+    <button data-go="5" class="chip">Tu día</button>
+    <button data-go="6" class="chip">Mejores leads</button>
+    <button data-go="7" class="chip">Tus números</button>
+    <button data-go="8" class="chip">El resultado</button>
+    <button data-go="9" class="chip">Arrancamos</button>
   </nav>
   <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar entre modo claro y oscuro" title="Modo claro / oscuro">
     <svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.9A8.6 8.6 0 0 1 9.1 3.8a8.6 8.6 0 1 0 11.1 11.1Z"/></svg>
@@ -106,7 +107,7 @@
   <section class="panel panel-wide" data-index="1">
     <div class="panel-head">
       <span class="step-badge step-badge-muted">Así estás hoy</span>
-      <h2 class="panel-title">Tienes un CRM…<br><span class="hl hl-clay">y todo depende de que alguien lo llene.</span></h2>
+      <h2 class="panel-title">Tienes un CRM o un Excel…<br><span class="hl hl-clay">y todo depende de que alguien lo llene.</span></h2>
     </div>
 
     <div class="o-today">
@@ -173,10 +174,53 @@
     </div>
   </section>
 
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">y mientras tanto…</span></div>
+
+  <!-- ============ 2 · MIENTRAS TANTO (repartir a mano) ============ -->
+  <section class="panel panel-wide" data-index="2">
+    <div class="panel-head">
+      <span class="step-badge step-2">Mientras tanto</span>
+      <h2 class="panel-title">Mientras repartes el lead a mano,<br><span class="hl hl-clay">otra inmobiliaria ya le contestó.</span></h2>
+    </div>
+
+    <div class="o-race" id="race">
+      <div class="o-newlead" data-at="0"><span class="bell">🔔</span><div><b>Nuevo lead: Laura G.</b><small>Llegó de Meta · busca apto de 3 habitaciones</small></div></div>
+
+      <div class="o-lane o-lane-you">
+        <div class="o-lane-head"><span class="o-lane-ico">⏳</span><div><b>Tu inmobiliaria</b><small>repartiendo a mano</small></div></div>
+        <div class="o-track">
+          <div class="o-step" data-at="400"><i>9:02 a. m.</i>Llega el lead</div>
+          <div class="o-step" data-at="2200"><i>9:45 a. m.</i>Lo anotas en el Excel</div>
+          <div class="o-step" data-at="4000"><i>10:30 a. m.</i>Decides a qué asesor</div>
+          <div class="o-step" data-at="5800"><i>11:50 a. m.</i>El asesor por fin lo ve</div>
+          <div class="o-step o-step-bad" data-at="7600"><i>12:20 p. m.</i>“Ya me atendieron, gracias.”</div>
+        </div>
+      </div>
+
+      <span class="o-stamp" aria-hidden="true">Venta perdida</span>
+
+      <div class="o-lane o-lane-them">
+        <div class="o-lane-head"><span class="o-lane-ico">⚡</span><div><b>Otra inmobiliaria</b><small>le contestó primero</small></div></div>
+        <div class="o-track">
+          <div class="o-step" data-at="400"><i>9:02 a. m.</i>Llega el lead</div>
+          <div class="o-step" data-at="900"><i>9:04 a. m.</i>Le contestan</div>
+          <div class="o-step" data-at="1500"><i>9:40 a. m.</i>Cita agendada</div>
+          <div class="o-step" data-at="2300"><i>Sábado</i>Visita el proyecto</div>
+          <div class="o-step o-step-good" data-at="3300"><i>Al mes</i>Compra con ellos 🏠</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict verdict-soft">
+      <span class="verdict-icon">⚡</span>
+      <p>El que contesta primero, vende. Con Lead Master cada lead le llega a su asesor <strong>en minutos, sin que nadie lo reparta</strong>, y el sistema le recuerda llamarlo.</p>
+    </div>
+  </section>
+
   <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">y eso cuesta</span></div>
 
   <!-- ============ 2 · LO QUE PIERDES ============ -->
-  <section class="panel panel-wide" data-index="2">
+  <section class="panel panel-wide" data-index="3">
     <div class="panel-head">
       <span class="step-badge step-2">Lo que estás perdiendo</span>
       <h2 class="panel-title">Cada lead que se enfría<br><span class="hl hl-clay">ya lo pagaste.</span></h2>
@@ -225,7 +269,7 @@
   <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">la solución</span></div>
 
   <!-- ============ 3 · LO HACE SOLO ============ -->
-  <section class="panel panel-wide" data-index="3">
+  <section class="panel panel-wide" data-index="4">
     <div class="panel-head">
       <span class="step-badge step-1">La solución</span>
       <h2 class="panel-title">Lead Master hace solo<br><span class="hl hl-amber">lo que hoy haces a mano.</span></h2>
@@ -275,7 +319,7 @@
       </svg></div>
 
       <ul class="o-out">
-        <li class="o-out-item o1"><span class="o-ico">🗂️</span><div><strong>Organiza cada lead</strong><small>Todos en un solo lugar, venga de donde venga.</small></div></li>
+        <li class="o-out-item o1"><span class="o-ico">🗂️</span><div><strong>Organiza y reparte cada lead</strong><small>Le llega a su asesor en minutos, sin repartir a mano.</small></div></li>
         <li class="o-out-item o2"><span class="o-ico">📍</span><div><strong>Te dice en qué etapa va</strong><small>Y lo mueve de etapa sin que nadie lo toque.</small></div></li>
         <li class="o-out-item o3"><span class="o-ico">📝</span><div><strong>Llena el CRM solo</strong><small>Lee chats y llamadas y deja todo escrito.</small></div></li>
         <li class="o-out-item o4"><span class="o-ico">🔔</span><div><strong>Te recuerda qué hacer</strong><small>A quién llamar hoy y a quién darle seguimiento.</small></div></li>
@@ -319,7 +363,7 @@
   <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">tu día a día</span></div>
 
   <!-- ============ 4 · TU DÍA ============ -->
-  <section class="panel panel-wide" data-index="4">
+  <section class="panel panel-wide" data-index="5">
     <div class="panel-head">
       <span class="step-badge step-3">Tu día a día</span>
       <h2 class="panel-title">Tú y tu equipo<br><span class="hl hl-olive">solo se dedican a vender.</span></h2>
@@ -373,7 +417,7 @@
   <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">y además…</span></div>
 
   <!-- ============ 5 · META APRENDE ============ -->
-  <section class="panel panel-wide" data-index="5">
+  <section class="panel panel-wide" data-index="6">
     <div class="panel-head">
       <span class="step-badge step-1">Mejores leads, más baratos</span>
       <h2 class="panel-title">Tus anuncios aprenden<br><span class="hl hl-amber">de tus ventas reales.</span></h2>
@@ -424,7 +468,7 @@
   <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">el control</span></div>
 
   <!-- ============ 6 · TUS NÚMEROS ============ -->
-  <section class="panel panel-wide" data-index="6">
+  <section class="panel panel-wide" data-index="7">
     <div class="panel-head">
       <span class="step-badge step-2">El control</span>
       <h2 class="panel-title">Cuando ves tus números,<br><span class="hl hl-clay">sabes qué arreglar.</span></h2>
@@ -476,7 +520,7 @@
   <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">el resultado</span></div>
 
   <!-- ============ 7 · EL RESULTADO ============ -->
-  <section class="panel panel-wide" data-index="7">
+  <section class="panel panel-wide" data-index="8">
     <div class="panel-head">
       <span class="step-badge step-badge-muted">El resultado</span>
       <h2 class="panel-title">De perseguir leads…<br>a <span class="hl hl-amber">tener el control</span>.</h2>
@@ -487,6 +531,7 @@
         <p class="flow-label">Hoy</p>
         <ul>
           <li>Todo a mano</li>
+          <li>Repartes los leads a mano</li>
           <li>Se te olvida actualizar</li>
           <li>No sabes a quién llamar</li>
           <li>Reportes en Excel, cuando hay</li>
@@ -503,6 +548,7 @@
         <p class="flow-label">Después</p>
         <ul>
           <li>El <strong>CRM se llena solo</strong></li>
+          <li>Cada lead <strong>le llega a su asesor en minutos</strong></li>
           <li>Cada lead <strong>en su etapa</strong></li>
           <li>Te dice <strong>a quién llamar</strong> y te recuerda las citas</li>
           <li><strong>Reportes semanales y mensuales</strong>, solos</li>
@@ -532,10 +578,38 @@
   <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">¿arrancamos?</span></div>
 
   <!-- ============ 8 · ARRANCAMOS ============ -->
-  <section class="panel panel-wide o-panel-close" data-index="8">
+  <section class="panel panel-wide o-panel-close" data-index="9">
     <div class="closing">
       <h3 class="closing-title">¿Arrancamos?</h3>
-      <p class="closing-text">Conectamos tus leads, lo dejamos funcionando y le enseñamos a tu equipo. Tú solo te dedicas a vender.</p>
+      <p class="closing-text">Conectamos tus leads, lo dejamos funcionando, le enseñamos a tu equipo y te damos soporte. Tú solo te dedicas a vender.</p>
+      <div class="o-price">
+        <div class="o-price-before">
+          <span class="o-price-tag">Normalmente</span>
+          <p>Implementación + capacitación + soporte</p>
+          <p class="o-strike"><span>2.000 USD</span></p>
+          <small>de entrada</small>
+        </div>
+        <div class="o-price-arrow" aria-hidden="true">→</div>
+        <div class="o-price-now">
+          <span class="o-price-badge">🎁 Solo en noviembre</span>
+          <p class="o-price-lead">Eliminamos los <strong>2.000 USD de entrada</strong>. Solo pagas:</p>
+          <p class="o-price-big"><b data-out="price">197</b><span class="o-price-cur">USD<small>/mes</small></span></p>
+          <p class="o-price-sub">con <b data-out="seatsIncl">5</b> asesores conectados</p>
+          <div class="o-price-chips">
+            <span>+ 7 USD por cada asesor adicional</span>
+            <span>👔 Gerentes ilimitados</span>
+          </div>
+          <div class="o-seats">
+            <span>¿Cuántos asesores tienes?</span>
+            <div class="o-stepper">
+              <button type="button" class="o-step-btn" data-seats="-1" aria-label="Un asesor menos">−</button>
+              <b data-out="seats">5</b>
+              <button type="button" class="o-step-btn" data-seats="1" aria-label="Un asesor más">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="roadmap">
         <div class="rm-line"></div>
         <div class="rm-item">
@@ -578,6 +652,6 @@
 </main>
 
 <script src="/app.js?v=26"></script>
-<script src="/oferta.js?v=1"></script>
+<script src="/oferta.js?v=2"></script>
 </body>
 </html>

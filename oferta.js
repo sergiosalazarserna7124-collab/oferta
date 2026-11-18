@@ -125,11 +125,52 @@
     setFunnel('sin');
   }
 
+  /* ---------- 2 · la carrera: repartir a mano vs. contestar primero ---------- */
+  var race = $('#race');
+  var raceTimers = [];
+  function runRace() {
+    if (!race) return;
+    raceTimers.forEach(clearTimeout);
+    raceTimers = [];
+    var items = $all('[data-at]', race);
+    race.classList.remove('is-done');
+    if (reduce) {
+      items.forEach(function (el) { el.classList.add('on'); });
+      race.classList.add('is-done');
+      return;
+    }
+    items.forEach(function (el) { el.classList.remove('on'); });
+    items.forEach(function (el) {
+      raceTimers.push(setTimeout(function () { el.classList.add('on'); }, parseInt(el.getAttribute('data-at'), 10) + 150));
+    });
+    raceTimers.push(setTimeout(function () { race.classList.add('is-done'); }, 8600));
+  }
+  var raceLoop = null;
+  function startRace() {
+    if (!race || raceLoop) return;
+    runRace();
+    if (!reduce) raceLoop = setInterval(runRace, 13500);
+  }
+
+  /* ---------- precio según asesores ---------- */
+  var BASE = 197, INCL = 5, EXTRA = 7;
+  var seats = INCL;
+  function renderPrice() {
+    setOut('seats', String(seats));
+    setOut('price', BASE + Math.max(0, seats - INCL) * EXTRA);
+  }
+  $all('.o-step-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      seats = Math.max(1, Math.min(200, seats + parseInt(b.getAttribute('data-seats'), 10)));
+      renderPrice();
+    });
+  });
+
   /* ---------- paneles que entran en pantalla ---------- */
   function onEnter(panel) {
-    var idx = parseInt(panel.getAttribute('data-index'), 10);
-    if (idx === 1) startCrmCounter();
-    if (idx === 6 && funnel && !userTouchedFunnel) {
+    if (panel.querySelector('[data-counter="crm"]')) startCrmCounter();
+    if (race && panel.contains(race)) startRace();
+    if (funnel && panel.contains(funnel) && !userTouchedFunnel) {
       setTimeout(function () { if (!userTouchedFunnel) setFunnel('con'); }, reduce ? 0 : 1600);
     }
   }
