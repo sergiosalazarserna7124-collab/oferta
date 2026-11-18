@@ -1,18 +1,38 @@
 # Oferta Lead Master — tablero horizontal
 
-Sitio estático de una sola página. El contenido se mueve **en horizontal** (tipo Miro):
+Sitio estático. El contenido se mueve **en horizontal** (tipo Miro):
 rueda del mouse, flechas del teclado, arrastrar con el mouse o los chips de arriba.
 
 ## Rutas
-- `/` — oferta general de Lead Master
+- `/` — oferta general de Lead Master, armada sobre los **dolores del cliente** (no sobre Go High Level).
+- `/ghl/` — la oferta anterior, basada en los 3 pasos (Go High Level, control comercial, capacitación). No se indexa.
 - `/raul/` — propuesta para Raúl: ¿un gerente por proyecto? (costo de gerentes vs. el sistema)
 
+## La oferta (`/`), panel por panel
+0. **Inicio** — «Tienes leads. Lo que te falta es control.» Caritas (cansado, aburrido, perdido, frustrado) y notas con frases reales de prospectos.
+1. **Hoy** — un CRM que se llena de leads sin actualizar y 6 dolores, cada uno con la frase de un prospecto.
+2. **Lo que pierdes** — calculadora: leads al mes y de cada 10 a cuántos se les da seguimiento → leads pagados sin trabajar, al año, y ventas que se fueron (supone que compra 1 de cada 50).
+3. **Lo hace solo** — las fuentes (Meta, campañas, WhatsApp, portales) entran a Lead Master, y sale lo que hace solo: organiza, etapa, llena el CRM, recuerda, agenda, reportes. Abajo, el pipeline que se mueve solo.
+4. **Tu día** — celular con avisos; botón para verlo como asesor o como dueño con equipo.
+5. **Mejores leads** — el ciclo con Meta: Lead Master le devuelve quién agendó y compró, y Meta busca más personas así.
+6. **Tus números** — embudo «sin / con Lead Master» y tabla por asesor (contactó, responde en, citas).
+7. **El resultado** — antes y después, testimonio y clientes.
+8. **Arrancamos** — los pasos y preguntas frecuentes (¿es un bot?, ¿mi equipo lo tiene que aprender?).
+
+### De dónde salen las frases
+Las citas entre comillas son textuales de llamadas grabadas en Fathom con prospectos y clientes
+(sep–nov 2026), sin nombres. Los números de la tabla, el embudo y el celular son **ejemplos**.
+Los clientes de la cinta son los mismos de la prueba social de leadmaster.com.co.
+
 ## Archivos
-- `index.html` — todo el contenido de la oferta
-- `styles.css` — diseño cálido (crema, terracota, ámbar)
+- `index.html` — la oferta
+- `oferta.css` — estilos y animaciones propias de la oferta (encima de `styles.css`)
+- `oferta.js` — calculadora, asesor/dueño, embudo sin/con y animaciones que arrancan al entrar a cada panel
+- `styles.css` — diseño base compartido (crema, terracota, ámbar; modo claro y oscuro)
 - `app.js` — navegación horizontal, arrastre, progreso
-- `render.yaml` — configuración para Render
+- `ghl/` — la oferta anterior (reutiliza `styles.css` y `app.js`)
 - `raul/` — página, estilos y calculadora de la propuesta para Raúl (reutiliza `styles.css` y `app.js`)
+- `render.yaml` — configuración para Render
 
 ## Ver en local
 ```

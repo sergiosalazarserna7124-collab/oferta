@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lead Master — Propuesta (versión Go High Level)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="El sistema que te devuelve el control de tu equipo comercial. Go High Level + Control del equipo comercial + Capacitación.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=26">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('lm-theme');
+    if(!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
+})();
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <span class="brand-name">Lead&nbsp;Master</span>
+  </div>
+  <nav class="chips" id="chips">
+    <button data-go="0" class="chip is-active">Inicio</button>
+    <button data-go="1" class="chip">Hoy</button>
+    <button data-go="2" class="chip">La solución</button>
+    <button data-go="3" class="chip">1 · Go High Level</button>
+    <button data-go="4" class="chip">2 · Control comercial</button>
+    <button data-go="5" class="chip">3 · Capacitación</button>
+    <button data-go="6" class="chip">El resultado</button>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar entre modo claro y oscuro" title="Modo claro / oscuro">
+    <svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.9A8.6 8.6 0 0 1 9.1 3.8a8.6 8.6 0 1 0 11.1 11.1Z"/></svg>
+    <svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.4"/><path d="M12 1.6v3M12 19.4v3M1.6 12h3M19.4 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1"/></svg>
+  </button>
+  <div class="topbar-hint">
+    <kbd>←</kbd><kbd>→</kbd><span>o arrastra</span>
+  </div>
+</header>
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<main class="canvas" id="canvas">
+
+  <!-- ============ 0 · PORTADA ============ -->
+  <section class="panel panel-cover" data-index="0">
+    <div class="cover-grid">
+      <div class="cover-left">
+        <h1 class="cover-title">
+          Deja de <span class="hl hl-clay">adivinar</span><br>
+          qué hace tu <br>equipo comercial.
+        </h1>
+        <p class="cover-lead">
+          Instalamos un sistema que ordena tu operación, mide todo lo que pasa
+          y te devuelve el control. En <strong>3 pasos</strong>.
+        </p>
+        <div class="cover-tags">
+          <span class="tag tag-a">Go High Level</span>
+          <span class="tag tag-b">Control del equipo comercial</span>
+          <span class="tag tag-c">Capacitación</span>
+        </div>
+        <div class="mood">
+          <p class="mood-label">Y tú, todos los días…</p>
+          <div class="mood-track">
+            <div class="mood-slot m1"><span>Frustrado</span></div>
+            <div class="mood-slot m2"><span>Preocupado</span></div>
+            <div class="mood-slot m3"><span>Triste</span></div>
+            <div class="mood-slot m4"><span>Furioso</span></div>
+            <div class="mood-face">
+              <svg class="face fc1" viewBox="0 0 48 48" aria-hidden="true"><circle class="skin" cx="24" cy="24" r="22"/><path class="ft" d="M13 17 L21 20 M35 17 L27 20"/><circle class="eye" cx="17" cy="26" r="2.4"/><circle class="eye" cx="31" cy="26" r="2.4"/><path class="ft" d="M15 35 l4.5 -3.5 l4.5 3.5 l4.5 -3.5 l4.5 3.5"/></svg>
+              <svg class="face fc2" viewBox="0 0 48 48" aria-hidden="true"><circle class="skin" cx="24" cy="24" r="22"/><path class="ft" d="M12 20 q4.5 -4.5 9 -1 M36 20 q-4.5 -4.5 -9 -1"/><circle class="eye" cx="17" cy="26" r="2.8"/><circle class="eye" cx="31" cy="26" r="2.8"/><path class="ft" d="M17 35 q7 -4.5 14 0"/><path class="drop" d="M39 13 q3.5 5 0 7 q-3.5 -2 0 -7 Z"/></svg>
+              <svg class="face fc3" viewBox="0 0 48 48" aria-hidden="true"><circle class="skin" cx="24" cy="24" r="22"/><path class="ft" d="M12.5 22.5 q4.5 -4 9 -4.5 M35.5 22.5 q-4.5 -4 -9 -4.5"/><circle class="eye" cx="17" cy="27.5" r="2.6"/><circle class="eye" cx="31" cy="27.5" r="2.6"/><path class="tear" d="M17 31.5 q3 5.5 0 7.5 q-3 -2 0 -7.5 Z"/><path class="ft" d="M16 37 q8 -7 16 0"/></svg>
+              <svg class="face fc4" viewBox="0 0 48 48" aria-hidden="true"><circle class="skin" cx="24" cy="24" r="22"/><circle class="blush" cx="12" cy="30" r="4"/><circle class="blush" cx="36" cy="30" r="4"/><path class="ft" d="M11 16 L22 22 M37 16 L26 22"/><circle class="eye" cx="17" cy="27" r="2.4"/><circle class="eye" cx="31" cy="27" r="2.4"/><path class="ft" d="M16 37 q8 -6.5 16 0"/><path class="steam" d="M8 10 q-4 -4 -1 -8 M40 10 q4 -4 1 -8"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-right">
+        <div class="note note-yellow">
+          <span class="note-pin"></span>
+          “¿Estarán trabajando<br>los leads?”
+        </div>
+        <div class="note note-blue">
+          <span class="note-pin"></span>
+          “¿Sí estarán haciendo<br>llamadas?”
+        </div>
+        <div class="note note-pink">
+          <span class="note-pin"></span>
+          “Marketing manda<br>basura…”
+        </div>
+        <div class="note note-green">
+          <span class="note-pin"></span>
+          “¿Qué habrán hecho<br>hoy con mis leads?”
+        </div>
+        <div class="note note-blue">
+          <span class="note-pin"></span>
+          “Ventas no sabe<br>cerrar…”
+        </div>
+        <div class="note note-yellow">
+          <span class="note-pin"></span>
+          “¿Y ese lead<br>quién lo descartó?”
+        </div>
+        <div class="note note-pink note-wide">
+          <span class="note-pin"></span>
+          “Los leads que entraron,<br>¿sí se habrán aprovechado bien?”
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">empecemos por aquí</span></div>
+
+  <!-- ============ 1 · HOY ============ -->
+  <section class="panel" data-index="1">
+    <div class="panel-head">
+      <span class="step-badge step-badge-muted">Dónde estás hoy</span>
+      <h2 class="panel-title">Esto es lo que está pasando<br><span class="hl hl-clay">y no lo puedes ver.</span></h2>
+    </div>
+
+    <div class="pain-board">
+      <div class="pain-column">
+        <div class="note note-yellow rot-a">
+          <span class="note-pin"></span>
+          <strong>Tu equipo comercial</strong><br>
+          No sabes si de verdad están trabajando o solo están conectados.
+        </div>
+        <div class="note note-green rot-c">
+          <span class="note-pin"></span>
+          <strong>Seguimiento</strong><br>
+          Dicen que hacen seguimiento. Pero nadie lo puede comprobar.
+        </div>
+      </div>
+
+      <div class="pain-column">
+        <div class="note note-blue rot-b">
+          <span class="note-pin"></span>
+          <strong>Leads descartados</strong><br>
+          Se descartan leads todos los días. ¿Bien descartados o mal descartados? Nadie sabe.
+        </div>
+        <div class="note note-pink rot-d">
+          <span class="note-pin"></span>
+          <strong>Contactos</strong><br>
+          ¿A quién le escribieron hoy? ¿A cuántos llamaron? Silencio.
+        </div>
+      </div>
+
+      <div class="fight">
+        <p class="fight-label">y encima, la pelea de siempre</p>
+        <div class="fight-row">
+          <div class="bubble bubble-left">
+            <span class="bubble-who">Ventas</span>
+            “Los leads que llegan <strong>no sirven</strong>.”
+          </div>
+          <div class="fight-vs">vs</div>
+          <div class="bubble bubble-right">
+            <span class="bubble-who">Marketing</span>
+            “Los leads están bien, <strong>ventas no vende</strong>.”
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <span class="verdict-icon">!</span>
+      <p>La discusión nunca termina porque <strong>nadie tiene números</strong>. Solo opiniones.</p>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">esto es lo que hacemos</span></div>
+
+  <!-- ============ 2 · LA SOLUCIÓN ============ -->
+  <section class="panel" data-index="2">
+    <div class="panel-head">
+      <span class="step-badge">La solución</span>
+      <h2 class="panel-title">Instalamos un sistema que <span class="hl hl-amber">mide todo</span>,<br>todo el tiempo.</h2>
+      <p class="panel-lead">Deja de depender de lo que te cuentan. A partir de ahora, lo ves.</p>
+    </div>
+
+    <div class="scan-area">
+      <div class="cards-4">
+        <article class="card c1">
+          <div class="card-icon i-eye"></div>
+          <h3>Qué hace tu equipo</h3>
+          <p>Actividad real de cada asesor, en tiempo real. Sin preguntar, sin perseguir.</p>
+          <span class="find f1">Asesor con comportamiento sospechoso</span>
+        </article>
+        <article class="card c2">
+          <div class="card-icon i-chat"></div>
+          <h3>A quién le escriben</h3>
+          <p>Cada conversación, cada llamada, cada mensaje. Todo queda registrado.</p>
+          <span class="find f2">Lead sin contacto hace 4 días</span>
+        </article>
+        <article class="card c3">
+          <div class="card-icon i-flag"></div>
+          <h3>Si trabajan el lead</h3>
+          <p>O si lo dejan morir en el pipeline sin tocarlo una sola vez.</p>
+          <span class="find f3">Lead descartado sin ninguna razón</span>
+        </article>
+        <article class="card c4">
+          <div class="card-icon i-clock"></div>
+          <h3>Si hacen seguimiento</h3>
+          <p>Cuántas veces, cada cuánto y hasta dónde llegaron con cada cliente.</p>
+          <span class="find f4">9 leads sin un solo seguimiento</span>
+        </article>
+      </div>
+
+      <div class="lupa-track" aria-hidden="true">
+        <div class="lupa-wrap">
+          <svg class="lupa" viewBox="0 0 64 64">
+            <circle class="lens-glow" cx="25" cy="25" r="23"/>
+            <circle class="lens" cx="25" cy="25" r="17"/>
+            <path class="shine" d="M15 19 a13 13 0 0 1 10 -8"/>
+            <path class="handle" d="M37 37 L55 55"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="truth">
+      <p class="truth-kicker">Y por fin vas a saber la verdad:</p>
+      <p class="truth-main">
+        si no se está vendiendo porque <strong>marketing trajo malos leads</strong>,
+        o porque <strong>ventas está haciendo mal el trabajo</strong>.
+      </p>
+    </div>
+
+    <div class="steps-preview">
+      <p class="steps-preview-label">Lo hacemos en 3 pasos</p>
+      <div class="steps-preview-row">
+        <button class="step-pill" data-go="3"><span>1</span> Dejamos Go High Level funcionando</button>
+        <span class="step-line"></span>
+        <button class="step-pill" data-go="4"><span>2</span> Instalamos un sistema que controla a tu equipo comercial</button>
+        <span class="step-line"></span>
+        <button class="step-pill" data-go="5"><span>3</span> Capacitación del equipo comercial y administrativo</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">paso 1</span></div>
+
+  <!-- ============ 3 · PASO 1 GHL ============ -->
+  <section class="panel panel-wide" data-index="3">
+    <div class="panel-head">
+      <span class="step-badge step-1">Paso 1</span>
+      <h2 class="panel-title">Dejamos <span class="hl hl-amber">Go High Level</span><br>funcionando en tu inmobiliaria</h2>
+    </div>
+
+    <div class="ghl-grid">
+      <div class="ghl-left">
+        <blockquote class="quote">
+          Go High Level es un <strong>lienzo en blanco</strong>.<br>
+          Si hoy no lo estás usando bien, estás perdiendo casi todo su potencial.
+        </blockquote>
+
+        <figure class="ferrari">
+          <svg viewBox="0 0 640 186" class="ferrari-svg" aria-label="Tres personas arrastrando un superdeportivo con una cuerda">
+            <defs>
+              <linearGradient id="paint" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F26B44"/>
+                <stop offset=".5" stop-color="#D9502F"/>
+                <stop offset="1" stop-color="#9E2F14"/>
+              </linearGradient>
+              <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#FCEEE5"/>
+                <stop offset="1" stop-color="#DEB9A3"/>
+              </linearGradient>
+              <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#F5E9D6"/>
+                <stop offset="1" stop-color="#BFAB90"/>
+              </linearGradient>
+            </defs>
+
+            <path class="ground" d="M14 155 H626"/>
+            <ellipse class="car-shadow" cx="416" cy="157" rx="182" ry="6"/>
+
+            <g class="pullers">
+              <path class="effort" d="M42 50 q-7 -11 -2 -21 M107 46 q-1 -12 6 -20 M167 50 q7 -11 15 -17"/>
+
+              <g transform="translate(58,77)">
+                <g class="puller-body p1">
+                  <circle class="head" cx="0" cy="0" r="10"/>
+                  <path class="limb" d="M3 10 C6 22, 10 32, 16 42"/>
+                  <path class="limb" d="M16 42 C8 54, 2 65, -2 78"/>
+                  <path class="limb" d="M16 42 C26 52, 34 64, 40 76"/>
+                  <path class="limb" d="M-2 78 L-13 78 M40 76 L51 79"/>
+                  <g class="arms">
+                    <path class="limb" d="M6 18 L30 30"/>
+                    <path class="limb" d="M5 23 L28 34"/>
+                    <circle class="hand" cx="30" cy="30" r="4"/>
+                    <path class="fingers" d="M32 27 l8 -4 M33 30 l9 0 M32 33 l7 5"/>
+                  </g>
+                </g>
+              </g>
+
+              <g transform="translate(118,77)">
+                <g class="puller-body p2">
+                  <circle class="head" cx="0" cy="0" r="10"/>
+                  <path class="limb" d="M3 10 C6 22, 10 32, 16 42"/>
+                  <path class="limb" d="M16 42 C9 55, 3 66, 0 78"/>
+                  <path class="limb" d="M16 42 C27 51, 35 64, 42 76"/>
+                  <path class="limb" d="M0 78 L-11 79 M42 76 L53 79"/>
+                  <g class="arms">
+                    <path class="limb" d="M6 18 L30 30"/>
+                    <path class="limb" d="M4 23 L27 35"/>
+                    <circle class="hand" cx="30" cy="30" r="4"/>
+                    <path class="fingers" d="M32 27 l8 -4 M33 30 l9 0 M32 33 l7 5"/>
+                  </g>
+                </g>
+              </g>
+
+              <g transform="translate(178,77)">
+                <g class="puller-body p3">
+                  <circle class="head" cx="0" cy="0" r="10"/>
+                  <path class="limb" d="M3 10 C6 22, 10 32, 16 42"/>
+                  <path class="limb" d="M16 42 C8 54, 2 65, -2 78"/>
+                  <path class="limb" d="M16 42 C26 52, 34 64, 40 76"/>
+                  <path class="limb" d="M-2 78 L-13 78 M40 76 L51 79"/>
+                  <g class="arms">
+                    <path class="limb" d="M6 18 L30 30"/>
+                    <path class="limb" d="M5 23 L28 34"/>
+                    <circle class="hand" cx="30" cy="30" r="4"/>
+                    <path class="fingers" d="M32 27 l8 -4 M33 30 l9 0 M32 33 l7 5"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            <path class="rope" d="M88 107 L208 109 C222 111, 236 113, 245 116">
+              <animate attributeName="d" dur="6s" repeatCount="indefinite"
+                keyTimes="0;0.10;0.30;0.50;0.56;0.62;0.70;0.90;1"
+                values="M88 107 L208 109 C222 111, 236 113, 245 116;M88 104 L208 107 C222 110, 236 113, 245 116;M88 107 L208 109 C222 111, 236 113, 245 116;M88 104 L208 107 C222 110, 236 113, 245 116;M88 107 L208 109 C222 111, 236 113, 245 116;M92 124 L200 134 C218 140, 236 128, 245 118;M104 150 L198 152 C220 153, 236 132, 245 118;M104 150 L198 152 C220 153, 236 132, 245 118;M88 107 L208 109 C222 111, 236 113, 245 116"/>            </path>
+
+            <g class="car" transform="translate(60,0)">
+              <g class="car-shake">
+              <path class="car-body" d="M185 116
+                C190 104, 205 98, 224 94
+                C252 88, 274 82, 292 74
+                C312 64, 334 54, 362 53
+                L378 53
+                C398 54, 418 62, 440 76
+                C466 92, 492 101, 512 100
+                C522 100, 528 105, 528 113
+                L528 122 C528 128, 525 131, 519 131
+                L512 131 A31 31 0 0 0 450 131
+                L304 131 A31 31 0 0 0 242 131
+                L193 131 C187 131, 184 127, 185 120 Z"/>
+
+              <path class="car-glass" d="M300 74 C318 62, 338 57, 362 57
+                L376 57 C392 58, 408 65, 424 76 Z"/>
+              <path class="car-pillar" d="M382 57 L382 75"/>
+
+              <path class="car-gloss" d="M206 100 C240 88, 280 76, 318 64"/>
+              <path class="car-crease" d="M216 108 C300 100, 410 100, 505 114"/>
+              <path class="car-door" d="M332 84 C340 102, 344 115, 344 128"/>
+              <path class="car-vent" d="M424 84 C440 80, 456 84, 466 93 L458 102 C448 96, 436 95, 424 96 Z"/>
+              <path class="car-light" d="M190 103 L218 95 L221 102 L193 110 Z"/>
+              <path class="car-light" d="M514 103 L528 106 L528 115 L514 112 Z"/>
+              <path class="car-mirror" d="M306 70 L294 65 L292 73 Z"/>
+              <path class="car-skirt" d="M308 126 L448 126"/>
+              <path class="car-splitter" d="M185 125 L218 129"/>
+              <path class="car-spoiler" d="M508 98 C516 97, 524 100, 528 105"/>
+
+              <g class="wheels">
+                <circle class="tyre" cx="273" cy="127" r="28"/>
+                <circle class="tyre" cx="481" cy="127" r="28"/>
+                <circle class="rim" cx="273" cy="127" r="16"/>
+                <circle class="rim" cx="481" cy="127" r="16"/>
+                <path class="spokes" d="M273 111 V143 M259 119 L287 135 M259 135 L287 119"/>
+                <path class="spokes" d="M481 111 V143 M467 119 L495 135 M467 135 L495 119"/>
+                <circle class="hub" cx="273" cy="127" r="4.5"/>
+                <circle class="hub" cx="481" cy="127" r="4.5"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <figcaption class="hand ferrari-caption">Es como tener un Ferrari y, para hacerlo andar,<br>tener que arrastrarlo con una cuerda y 3 personas.</figcaption>
+        </figure>
+      </div>
+
+      <div class="ghl-right">
+        <p class="mini-label">Qué dejamos funcionando</p>
+        <ul class="check-list">
+          <li><span class="tick"></span><div><strong>Mensajes automáticos</strong><br>El lead recibe respuesta al instante, no en 3 horas.</div></li>
+          <li><span class="tick"></span><div><strong>Asignación automática</strong><br>Cada lead cae con dueño y con hora. Sin repartos a mano.</div></li>
+          <li><span class="tick"></span><div><strong>Recordatorios y tareas</strong><br>El sistema le dice al asesor qué hacer y cuándo hacerlo.</div></li>
+          <li><span class="tick"></span><div><strong>Portales conectados</strong><br>Todas tus fuentes de leads entrando a un solo lugar.</div></li>
+          <li><span class="tick"></span><div><strong>Pipeline que se mueve solo</strong><br>Notas, tareas y etapas se actualizan en tiempo real.</div></li>
+        </ul>
+
+        <div class="warn-note">
+          <strong>Ojo:</strong> no son bots que reemplazan a tu equipo comercial.
+          Es un sistema que <em>los ordena</em> y a ti te muestra qué está pasando.
+        </div>
+      </div>
+    </div>
+
+    <div class="track-band">
+      <div class="track-head">
+        <p class="track-title">
+          Tu equipo comercial solo tiene que <strong>hablar con el lead</strong>.<br>
+          De lo demás se encarga el sistema.
+        </p>
+        <p class="track-sub">
+          Trackeamos todo lo que se habla por chat y por llamada. Y además sabes
+          exactamente cada cita y cada recorrido.
+        </p>
+      </div>
+      <div class="track-items">
+        <div class="track-item"><span class="track-ico">💬</span><div><strong>Chats</strong><br>Cada mensaje enviado y recibido.</div></div>
+        <div class="track-item"><span class="track-ico">📞</span><div><strong>Llamadas</strong><br>Quién llamó, cuándo y qué se habló.</div></div>
+        <div class="track-item"><span class="track-ico">📅</span><div><strong>Citas</strong><br>Cada cita agendada y si se cumplió.</div></div>
+        <div class="track-item"><span class="track-ico">📍</span><div><strong>Recorridos</strong><br>Cada visita al inmueble, registrada.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">paso 2</span></div>
+
+  <!-- ============ 4 · PASO 2 LEAD MASTER ============ -->
+  <section class="panel panel-wide" data-index="4">
+    <div class="panel-head">
+      <span class="step-badge step-2">Paso 2</span>
+      <h2 class="panel-title">Control del equipo comercial:<br>el sistema que ve <span class="hl hl-clay">lo que tú no puedes ver.</span></h2>
+      <p class="panel-lead">Monitorea a tu equipo comercial y te dice qué hace y qué no hace.</p>
+    </div>
+
+    <div class="lm-grid">
+      <div class="case">
+        <p class="case-label">Caso real · mes pasado</p>
+        <p class="case-text">
+          En un cliente encontramos <strong>3 asesores descartando leads sin haberlos trabajado</strong>.
+          Él no tenía idea.
+        </p>
+        <p class="case-ask hand">¿Y si en tu equipo está pasando ahora mismo?</p>
+        <p class="case-foot">Otros dueños descubrieron con esto a un asesor <strong>quedándose con sus leads</strong>.</p>
+      </div>
+
+      <div class="lm-list">
+        <p class="mini-label">Lo que vas a ver todos los días</p>
+        <ul class="check-list check-list-tight">
+          <li><span class="tick tick-clay"></span><div><strong>Cuántos leads tiene cada asesor</strong></div></li>
+          <li><span class="tick tick-clay"></span><div><strong>Cuántos está trabajando de verdad</strong></div></li>
+          <li><span class="tick tick-clay"></span><div><strong>El resumen de cada conversación</strong><br>Qué le dijeron al cliente y en qué quedaron.</div></li>
+          <li><span class="tick tick-clay"></span><div><strong>Alertas automáticas</strong><br>Si descartan, si dejan de trabajar o si hay comportamiento sospechoso.</div></li>
+        </ul>
+      </div>
+
+      <div class="alerts">
+        <p class="mini-label">Así te avisa el sistema</p>
+        <div class="alert alert-red">
+          <span class="alert-dot"></span>
+          <div><strong>Descarte sin contacto</strong><br><span>Andrés descartó 12 leads sin un solo mensaje enviado.</span></div>
+        </div>
+        <div class="alert alert-amber">
+          <span class="alert-dot"></span>
+          <div><strong>Lead abandonado</strong><br><span>6 días sin seguimiento en 9 oportunidades abiertas.</span></div>
+        </div>
+        <div class="alert alert-clay">
+          <span class="alert-dot"></span>
+          <div><strong>Comportamiento inusual</strong><br><span>Leads reasignados fuera del horario habitual.</span></div>
+        </div>
+        <p class="alerts-foot">El sistema te alerta. <strong>Tú revisas y decides.</strong></p>
+      </div>
+    </div>
+
+    <div class="auto-demo">
+      <div class="auto-demo-top">
+        <span class="auto-badge"><span class="auto-dot"></span>Todo esto pasa solo</span>
+        <p class="auto-demo-text">Tu asesor solo habla con el lead. El sistema mueve la etapa, abre el contacto, crea la tarea y guarda la nota. <strong>Sin que nadie toque nada.</strong></p>
+      </div>
+
+      <div class="pipeline">
+        <div class="stage st1"><span>Nuevo</span></div>
+        <div class="stage st2"><span>Contactado</span></div>
+        <div class="stage st3"><span>Cita agendada</span></div>
+        <div class="stage st4"><span>Cerrado</span></div>
+        <div class="lead-card">
+          <div class="lead-top">
+            <span class="lead-avatar">LG</span>
+            <span class="lead-name">Laura G.</span>
+          </div>
+          <div class="lead-note">
+            <span class="ln ln1">Busca apto de 3 habitaciones</span>
+            <span class="ln ln2">Lo quiere en zona norte · hasta $450M</span>
+            <span class="ln ln3">Visita jueves 4:00 p. m. · Chicó</span>
+            <span class="ln ln4">Compró apto 302 · $420.000.000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="auto-events">
+        <span class="ev ev0"><span class="bell">🔔</span> Asesor notificado</span>
+        <span class="ev ev1">📇 Contacto abierto</span>
+        <span class="ev ev2">✅ Tarea creada</span>
+        <span class="ev ev3">📝 Nota guardada</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">paso 3</span></div>
+
+  <!-- ============ 5 · PASO 3 CAPACITACIÓN ============ -->
+  <section class="panel" data-index="5">
+    <div class="panel-head">
+      <span class="step-badge step-3">Paso 3</span>
+      <h2 class="panel-title">Capacitamos a tu <span class="hl hl-olive">equipo comercial</span><br>y administrativo</h2>
+      <p class="panel-lead">Un sistema sin equipo entrenado es un sistema desperdiciado.</p>
+    </div>
+
+    <div class="train-grid">
+      <article class="train-card">
+        <span class="train-num">1</span>
+        <h3>El CRM</h3>
+        <p>Que lo usen bien y completo, no a medias. Cada quien sabe qué hacer, dónde y cuándo.</p>
+      </article>
+      <article class="train-card">
+        <span class="train-num">2</span>
+        <h3>Las métricas</h3>
+        <p>Qué se mide y por qué importa: leads que entran, contactados, seguimientos, cierres.</p>
+      </article>
+      <article class="train-card">
+        <span class="train-num">3</span>
+        <h3>Cómo usar esos números</h3>
+        <p>Leer los datos para tomar decisiones: dónde se está cayendo la venta y qué corregir esta semana.</p>
+      </article>
+    </div>
+
+    <div class="report-card">
+      <div class="report-left">
+        <p class="mini-label">Y además, cada periodo</p>
+        <h3 class="report-title">Reportes de lo que pasa con tu equipo comercial</h3>
+        <p class="report-text">Sin que tengas que pedirlos, sin que tengas que armarlos tú.</p>
+      </div>
+      <div class="report-chart" aria-hidden="true">
+        <span style="--h:38%"></span><span style="--h:55%"></span><span style="--h:44%"></span>
+        <span style="--h:70%"></span><span style="--h:62%"></span><span style="--h:88%"></span>
+        <span style="--h:76%"></span><span style="--h:100%"></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="connector"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M2 30 C 70 30, 120 30, 195 30" /><path d="M182 20 L200 30 L182 40" class="head"/></svg><span class="connector-label">el resultado</span></div>
+
+  <!-- ============ 6 · EL RESULTADO ============ -->
+  <section class="panel panel-wide" data-index="6">
+    <div class="panel-head">
+      <span class="step-badge step-badge-muted">El resultado</span>
+      <h2 class="panel-title">De adivinar… a <span class="hl hl-amber">tener el control</span>.</h2>
+    </div>
+
+    <div class="summary-flow">
+      <div class="flow-item flow-before">
+        <p class="flow-label">Hoy</p>
+        <ul>
+          <li>Opiniones, no datos</li>
+          <li>Leads que se pierden sin explicación</li>
+          <li>Marketing contra ventas</li>
+          <li>Cero visibilidad</li>
+        </ul>
+      </div>
+
+      <div class="flow-arrow">
+        <svg viewBox="0 0 120 40"><path d="M4 20 H100"/><path d="M88 10 L106 20 L88 30"/></svg>
+        <span class="hand">con el sistema</span>
+      </div>
+
+      <div class="flow-item flow-after">
+        <p class="flow-label">Después</p>
+        <ul>
+          <li><strong>Go High Level</strong> funcionando en automático</li>
+          <li><strong>Control del equipo comercial</strong> midiendo todo</li>
+          <li><strong>Equipo capacitado</strong> en CRM y métricas</li>
+          <li><strong>Reportes</strong> constantes en tus manos</li>
+          <li>Se acabó la pelea: hay <strong>números</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="closing">
+      <h3 class="closing-title">¿Arrancamos?</h3>
+      <p class="closing-text">Montamos todo, entrenamos a tu gente y te entregamos el control de tu operación comercial.</p>
+      <div class="roadmap">
+        <div class="rm-line"></div>
+        <div class="rm-item">
+          <span class="rm-dot">🚀</span>
+          <strong>Implementación en 7 días</strong>
+          <span class="rm-sub">Todo montado y funcionando</span>
+        </div>
+        <div class="rm-item">
+          <span class="rm-dot">🎓</span>
+          <strong>Capacitación por 60 días</strong>
+          <span class="rm-sub">Dos meses acompañando a tu equipo</span>
+        </div>
+        <div class="rm-item">
+          <span class="rm-dot">📅</span>
+          <strong>Reuniones semanales</strong>
+          <span class="rm-sub">Revisamos números y ajustamos</span>
+        </div>
+        <div class="rm-item">
+          <span class="rm-dot">🎬</span>
+          <strong>Videos explicativos</strong>
+          <span class="rm-sub">De todo el sistema, para consultar cuando quieras</span>
+        </div>
+        <div class="rm-item">
+          <span class="rm-dot">🧩</span>
+          <strong>Adaptado a tu flujo</strong>
+          <span class="rm-sub">A cómo vende tu inmobiliaria, no a una plantilla</span>
+        </div>
+      </div>
+      <p class="signature hand">Lead Master</p>
+    </div>
+  </section>
+
+  <div class="canvas-end"></div>
+</main>
+
+<script src="/app.js?v=26"></script>
+</body>
+</html>
